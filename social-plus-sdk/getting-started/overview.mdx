@@ -6,9 +6,10 @@ description: "Install social.plus SDK and start building social features in minu
 Ready to add powerful social features to your app? This guide will get you up and running with social.plus SDK quickly, whether you're building for mobile, web, or cross-platform.
 
 <Note>
-**New to social.plus SDK?** Check out our [SDK Overview](/social-plus-sdk/overview) to learn about all available features and choose what's right for your project.
+  **New to social.plus SDK?** Check out our [SDK
+  Overview](/social-plus-sdk/overview) to learn about all available features and
+  choose what's right for your project.
 </Note>
-
 
 <Steps>
 <Step title="Choose Your Platform">
@@ -30,8 +31,8 @@ Select the SDK that matches your development environment:
 
 <Step title="Get Your API Key">
 1. Visit the [social.plus Console](https://portal.social.plus/login)
-2. Navigate to **Settings** → **Security**
-3. Copy your API key from the **Keys** section
+2. Navigate to **Settings** → **Integrations**
+3. Copy your API key from the **API Key** section
 
 <Note>
 Keep your API key secure. Never expose it in client-side code in production.
@@ -39,7 +40,8 @@ Keep your API key secure. Never expose it in client-side code in production.
 </Step>
 
 <Step title="Initialize the SDK">
-After installation, initialize the SDK with your API key:
+1. Install the SDK using the [platform-specific instructions](https://learn.social.plus/social-plus-sdk/getting-started/platform-setup/mobile/ios-quick-start)
+2. Initialize the SDK with your API key and the [region](https://learn.social.plus/uikit/getting-started/authentication#regional-configuration) where your social.plus application was created (US, EU, or SG)
 
 <CodeGroup>
 ```swift iOS
@@ -59,11 +61,11 @@ class ChatApp : Application() {
 ```
 
 ```typescript TypeScript
-import { Client } from '@amityco/ts-sdk';
+import { Client } from "@amityco/ts-sdk";
 
 const client = Client.create({
-  apiKey: 'your-api-key',
-  region: 'sg'
+  apiKey: "your-api-key",
+  region: "sg",
 });
 ```
 
@@ -77,6 +79,7 @@ void setup() async {
       sycInitialization: true);
 }
 ```
+
 </CodeGroup>
 </Step>
 
@@ -115,7 +118,7 @@ fun authenticate() {
 ```
 
 ```typescript TypeScript
-const { Client } = await import('@amityco/ts-sdk');
+const { Client } = await import("@amityco/ts-sdk");
 
 const sessionHandler: Amity.SessionHandler = {
   sessionWillRenewAccessToken(renewal) {
@@ -136,12 +139,12 @@ const handleConnect = async (userId: string, displayName: string) => {
    *    apiEndpoint?: { http?: 'http.endpoint', mqtt?: 'mqtt.endpoint'  }
    * }
    */
-  const client = Client.createClient('apiKey', 'apiRegion');
+  const client = Client.createClient("apiKey", "apiRegion");
 
   await Client.login({ userId, displayName }, sessionHandler);
 };
 
-handleConnect('userId', 'Bob Newton');
+handleConnect("userId", "Bob Newton");
 ```
 
 ```dart Flutter
@@ -153,6 +156,7 @@ void login() async {
       .submit();
 }
 ```
+
 </CodeGroup>
 </Step>
 </Steps>
@@ -167,11 +171,11 @@ Learn about session management and secure authentication flows
 </Card>
 
 <Card title="Social Features" icon="users" href="/social-plus-sdk/social">
-Create communities, posts, and social feeds
+  Create communities, posts, and social feeds
 </Card>
 
 <Card title="Chat Features" icon="comments" href="/social-plus-sdk/chat">
-Build real-time messaging and channels
+  Build real-time messaging and channels
 </Card>
 
 <Card title="Live Video" icon="video" href="/social-plus-sdk/video">
@@ -191,23 +195,15 @@ Make sure your development environment meets these minimum requirements:
 </Tab>
 
 <Tab title="Android">
-- Android 5.0 (API 21)+
-- Target SDK 29+
-- Kotlin 1.5.10+
+  - Android 5.0 (API 21)+ - Target SDK 29+ - Kotlin 1.5.10+
 </Tab>
 
 <Tab title="Web">
-- Chrome 38+
-- Firefox 42+
-- Safari 9+
-- Edge 13+
-- Opera: 25+
+  - Chrome 38+ - Firefox 42+ - Safari 9+ - Edge 13+ - Opera: 25+
 </Tab>
 
 <Tab title="React Native">
-- React Native 0.60+
-- Node.js 14+
-- iOS 13.0+ / Android 5.0 (API 21)+
+  - React Native 0.60+ - Node.js 14+ - iOS 13.0+ / Android 5.0 (API 21)+
 </Tab>
 
 <Tab title="Flutter">
